@@ -64,7 +64,7 @@ normal_distribution<double> dist_theta(0, std_pos[2]);
 for (int i = 0; i < num_particles; ++i) {
 		Particle* p;
 		p = &particles[i];
-		if(yaw_rate!=0){//avoiding div by 0
+		if(abs(yaw_rate)>0.0001){//avoiding div by 0
 				
 				p->x = p->x + (velocity/yaw_rate)*(sin(p->theta+yaw_rate*delta_t) - sin(p->theta));
 				p->y = p->y + (velocity/yaw_rate)*(cos(p->theta)-cos(p->theta+yaw_rate*delta_t));
