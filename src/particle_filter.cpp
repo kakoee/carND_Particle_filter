@@ -199,9 +199,8 @@ void ParticleFilter::resample() {
   for (int i = 0; i < num_particles; ++i) {
     discrete_distribution<int> disc(weights.begin(), weights.end());
     new_particles[i] = particles[disc(gen)];
-    
   }
-  
+ 
   particles = new_particles;
 
 }
